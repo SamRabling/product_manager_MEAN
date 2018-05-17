@@ -8,9 +8,11 @@ import { ProdEditComponent } from './prod-edit/prod-edit.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: IndexComponent },
-  { path: 'products/list', component: ProdListComponent },
-  { path: 'products/new', component: ProdNewComponent },
-  { path: 'products/edit/:id', component: ProdEditComponent}
+  { path: 'products', component: ProdListComponent, children: [
+    { path: 'new', component: ProdNewComponent },
+    { path: 'edit/:id', component: ProdEditComponent }
+  ]},
+
 ];
 
 @NgModule({

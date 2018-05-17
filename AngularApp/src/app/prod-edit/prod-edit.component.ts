@@ -12,6 +12,7 @@ export class ProdEditComponent implements OnInit {
   edit_prod = {title: '', price: '', img: ''};
   id: string;
   prod_params: any;
+  errors = null;
 
   constructor(
     private _httpService: HttpService,
@@ -31,8 +32,12 @@ export class ProdEditComponent implements OnInit {
   editProduct() {
     const obsevable = this._httpService.editProduct(this.id, this.edit_prod);
     obsevable.subscribe(data => {
+      if (data['message'] === 'Success') {
       this.edit_prod = { title: '', price: '', img: '' };
       this._router.navigate(['/']);
+      } else {
+        this.errors = data['error'];
+      }
     });
   }
 

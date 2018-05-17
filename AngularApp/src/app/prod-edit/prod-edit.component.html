@@ -1,8 +1,8 @@
 <h1> PPM - Project Product Management </h1>
 <p>
   <a [routerLink]="['']">Home</a>
-  <a [routerLink]="['products/list']">Product List</a>
-  <a [routerLink]="['products/new']">Product Creation</a>
+  <a [routerLink]="['products']">Product List</a>
+  <a [routerLink]="['new']">Product Creation</a>
 </p>
 <div class="main-content">
   <div class="main-content">
@@ -11,14 +11,14 @@
       {{ errors['message'] }}
     </div>
     <form (submit)="editProduct()">
-      <label>Title: </label><input type="text" name="editProduct['title']" [(ngModel)]="edit_prod['title']"><br>
+      <label>Title: </label><input type="text" name="editProduct['title']" [(ngModel)]="edit_prod['title']" [value]="edit_prod.title"><br>
       <br>
-      <label>Price: </label><input type="text" name="editProduct['price']" [(ngModel)]="edit_prod['price']"><br>
+      <label>Price: </label><input type="text" name="editProduct['price']" [(ngModel)]="edit_prod['price']" [value]="edit_prod.price"><br>
       <br>
-      <label>Imgage url: </label><input type="text" name="editProduct['img']" [(ngModel)]="edit_prod['img']"><br>
+      <label>Imgage url: </label><input type="text" name="editProduct['img']" [(ngModel)]="edit_prod['img']" [value]="edit_prod.img"><br>
       <br>
       <input type="submit" value="update">
-      <button [routerLink]="['products/list']">Cancel</button>
+      <button [routerLink]="['products']">Cancel</button>
     </form>
   </div>
 </div>

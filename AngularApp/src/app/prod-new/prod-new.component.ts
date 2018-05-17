@@ -23,7 +23,7 @@ export class ProdNewComponent implements OnInit {
     observable.subscribe(data => {
       if (data['message'] === 'Success') {
         this.newProduct = { title: '', price: '', img: '' };
-        this._router.navigate(['/']);
+        this._router.navigate(['list']);
       } else {
         this.errors = data['error'];
       }

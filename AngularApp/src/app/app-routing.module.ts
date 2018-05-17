@@ -7,12 +7,12 @@ import { ProdNewComponent } from './prod-new/prod-new.component';
 import { ProdEditComponent } from './prod-edit/prod-edit.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: IndexComponent },
-  { path: 'products', component: ProdListComponent, children: [
-    { path: 'new', component: ProdNewComponent },
-    { path: 'edit/:id', component: ProdEditComponent }
+  { path: ' ', component: IndexComponent },
+  {
+    path: 'products', pathMatch: 'full', component: ProdListComponent, children: [
+      { path: 'new', pathMatch: 'full',  component: ProdNewComponent },
+      { path: 'edit/:id', pathMatch: 'full', component: ProdEditComponent }
   ]},
-
 ];
 
 @NgModule({

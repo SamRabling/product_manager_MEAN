@@ -5,7 +5,7 @@ module.exports = {
     index: function (req, res) {
         Product.find({}, function (err, product) {
             if (err) {
-                res.json({ status: false, data: err });
+                res.json({ status: false, error: err });
             } else {
                 res.json({ status: true, data: product });
             }
@@ -20,7 +20,7 @@ module.exports = {
         });
         product.save(function (err) {
             if (err) {
-                res.json({ status: false, data: err });
+                res.json({ status: false, error: err });
             } else {
                 res.json({ status: true, data: product });
             }
@@ -31,7 +31,7 @@ module.exports = {
         var id = req.params.id
         Product.findOne({ _id: id }, function (err, product) {
             if (err) {
-                res.json({ status: false, data: err });
+                res.json({ status: false, error: err });
             } else {
                 res.json({ status: true, data: product });
             }
@@ -49,7 +49,7 @@ module.exports = {
                     product.img = req.body.img
                 product.save(function (err, updatedProduct) {
                     if (err) {
-                        res.json({ status: false, data: err });
+                        res.json({ status: false, error: err });
                     } else {
                         res.json({ status: true, data: updatedProduct });
                     }
@@ -62,7 +62,7 @@ module.exports = {
         var id = req.params.id
         Product.findByIdAndRemove({ _id: id }, function (err, product) {
             if (err) {
-                res.json({ status: false, data: err });
+                res.json({ status: false, error: err });
             } else {
                 res.json({ status: true });
             }

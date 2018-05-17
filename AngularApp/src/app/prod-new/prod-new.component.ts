@@ -30,10 +30,9 @@ export class ProdNewComponent implements OnInit {
     console.log('got data');
     const observable = this._httpService.addProduct(this.newProduct);
     observable.subscribe(data => {
-      console.log(data['message']);
       if (data['status'] === 'True') {
         this.newProduct = { title: '', price: null, img: '' };
-        this._router.navigate(['/products']);
+        this._router.navigate(['']);
       } else {
         this.errors = data['error'];
       }

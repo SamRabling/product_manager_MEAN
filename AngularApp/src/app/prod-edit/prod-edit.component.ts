@@ -34,9 +34,9 @@ export class ProdEditComponent implements OnInit {
     obsevable.subscribe(data => {
       if (data['status'] === 'true') {
       this.edit_prod = { title: '', price: null, img: '' };
-      this._router.navigate(['list']);
+      this._router.navigate(['']);
       } else {
-        this.errors = data['err'];
+        this.errors = data['error'];
       }
     });
   }

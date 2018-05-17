@@ -7,7 +7,7 @@
 <div class="main-content">
   <h3>Create a New Product</h3>
   <div *ngIf="errors" class="alert alert-danger">
-    {{ errors }}
+    {{ errors['message'] }}
   </div>
   <form>
     <label>Title: </label><input type="text"><br>

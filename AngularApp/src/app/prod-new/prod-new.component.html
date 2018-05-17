@@ -4,7 +4,7 @@
   <div *ngIf="errors" class="alert alert-danger">
     {{ errors['message'] }}
   </div>
-  <form (submit)="addProduct()">
+  <form (submit)="submitProduct()">
     <label>Title: </label><input type="text" name="addProduct['title']" [(ngModel)]="newProduct['title']"><br>
     <br>
     <label>Price: </label><input type="text" name="addProduct['price']" [(ngModel)]="newProduct['price']"><br>
@@ -15,4 +15,3 @@
     <button [routerLink]="['products']">Cancel</button>
   </form>
 </div>
-<router-outlet></router-outlet>

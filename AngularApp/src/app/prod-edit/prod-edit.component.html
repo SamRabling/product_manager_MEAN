@@ -1,9 +1,9 @@
-<router-outlet></router-outlet>
+
 <div class="main-content">
   <div class="main-content">
     <h3>Edit Product</h3>
-    <div *ngIf="errors" class="alert alert-danger">
-      {{ errors['message'] }}
+    <div *ngIf="errors" >
+      {{ errors['err'] }}
     </div>
     <form (submit)="editProduct()">
       <label>Title: </label><input type="text" name="editProduct['title']" [(ngModel)]="edit_prod['title']" [value]="edit_prod.title"><br>

@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./prod-edit.component.css']
 })
 export class ProdEditComponent implements OnInit {
-  edit_prod = {title: '', price: '', img: ''};
+  edit_prod = {title: '', price: null, img: ''};
   id: string;
   prod_params: any;
   errors = null;
@@ -32,11 +32,11 @@ export class ProdEditComponent implements OnInit {
   editProduct() {
     const obsevable = this._httpService.editProduct(this.id, this.edit_prod);
     obsevable.subscribe(data => {
-      if (data['message'] === 'Success') {
-      this.edit_prod = { title: '', price: '', img: '' };
+      if (data['status'] === 'true') {
+      this.edit_prod = { title: '', price: null, img: '' };
       this._router.navigate(['list']);
       } else {
-        this.errors = data['error'];
+        this.errors = data['err'];
       }
     });
   }

@@ -15,15 +15,16 @@ export class ProdNewComponent implements OnInit {
   constructor(private _httpService: HttpService, private _router: Router) { }
 
   ngOnInit() {
-    this.newProduct = { title: '', price: '', img: '' };
+    this.newProduct = { title: '', price: null , img: '' };
   }
 
-  addProduct() {
+  submitProduct() {
+    console.log('got data');
     const observable = this._httpService.addProduct(this.newProduct);
     observable.subscribe(data => {
       if (data['message'] === 'Success') {
-        this.newProduct = { title: '', price: '', img: '' };
-        this._router.navigate(['list']);
+        this.newProduct = { title: '', price: null, img: '' };
+        this._router.navigate(['/products']);
       } else {
         this.errors = data['error'];
       }

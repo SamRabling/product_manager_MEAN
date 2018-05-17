@@ -3,9 +3,9 @@
   <h3>Products List</h3>
   <div class="product" *ngFor = "let product of products">
     <img class="prod_photo" [src]="product['img']" >
-    <p>{{product.title}}</p>
-    <p>{{product.price}}</p>
-    <button [routerLink]="['edit', product['id']]">Edit</button> <button (click)="removeProd(product._id)"> Delete</button>
+    <p>Title: {{product.title}}</p>
+    <p>Price: ${{product.price}}</p>
+    <button [routerLink]="['/products', 'edit', product['id']]">Edit</button> <button (click)="removeProd(product._id)"> Delete</button>
   </div>
 </div>
 

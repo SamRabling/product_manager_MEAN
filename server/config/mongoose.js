@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
+var path = require("path");
+const fs = require("fs");
 
-const ProductSchema = new mongoose.Schema({
-    title: { type: String, required: true, minlength: 2 },
-    price: { type: Number, required: true },
-    img: { type: String, required: true, minlength: 2 }
-})
-
-mongoose.model('product', ProductSchema)
+var models_path = path.join(__dirname, './../models');
+mongoose.connect("mongodb://localhost/products")
+fs.readdirSync(models_path).forEach(function (file) {
+    if (file.indexOf('.js') >= 0) {
+        // require the file (this runs the model file which registers the schema)
+        require(models_path + '/' + file);
+    }
+});

@@ -1,9 +1,4 @@
-<h1> PPM - Project Product Management </h1>
-<p>
-  <a [routerLink]="['']">Home</a>
-  <a [routerLink]="['products']">Product List</a>
-  <a [routerLink]="['new']">Product Creation</a>
-</p>
+<router-outlet></router-outlet>
 <div class="main-content">
   <h3>Products List</h3>
   <div class="product" *ngFor = "let product of products">
@@ -13,3 +8,4 @@
     <button [routerLink]="['edit', product['id']]">Edit</button> <button (click)="removeProd(product._id)"> Delete</button>
   </div>
 </div>
+

@@ -29,7 +29,9 @@ module.exports = {
 
     retrieve: function (req, res, err) {
         var id = req.params.id
+        console.log("got data");
         Product.findOne({ _id: id }, function (err, product) {
+            console.log(product, err);
             if (err) {
                 res.json({ status: false, error: err });
             } else {

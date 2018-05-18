@@ -5,7 +5,7 @@
     <img class="prod_photo" [src]="product['img']" >
     <p>Title: {{product.title}}</p>
     <p>Price: ${{product.price}}</p>
-    <button [routerLink]="['/products', 'edit', product['id']]">Edit</button> <button (click)="removeProd(product._id)"> Delete</button>
+    <button [routerLink]="['/products', 'edit', product['_id']]">Edit</button> <button (click)="removeProd(product._id)"> Delete</button>
   </div>
 </div>
 

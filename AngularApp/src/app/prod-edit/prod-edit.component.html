@@ -1,16 +1,15 @@
-
 <div class="main-content">
   <div class="main-content">
     <h3>Edit Product</h3>
-    <div *ngIf="errors" >
-      {{ errors['err'] }}
+    <div *ngIf="errors" class="alert alert-danger">
+      {{ errors['message'] }}
     </div>
     <form (submit)="editProduct()">
-      <label>Title: </label><input type="text" name="editProduct['title']" [(ngModel)]="edit_prod['title']" [value]="edit_prod.title"><br>
+      <label>Title: </label><input type="text" name="editProduct['title']" [(ngModel)]="edit_prod['title']" ><br>
       <br>
-      <label>Price: </label><input type="text" name="editProduct['price']" [(ngModel)]="edit_prod['price']" [value]="edit_prod.price"><br>
+      <label>Price: </label><input type="text" name="editProduct['price']" [(ngModel)]="edit_prod['price']" ><br>
       <br>
-      <label>Imgage url: </label><input type="text" name="editProduct['img']" [(ngModel)]="edit_prod['img']" [value]="edit_prod.img"><br>
+      <label>Imgage url: </label><input type="text" name="editProduct['img']" [(ngModel)]="edit_prod['img']" ><br>
       <br>
       <input type="submit" value="update">
       <button [routerLink]="['/products']">Cancel</button>

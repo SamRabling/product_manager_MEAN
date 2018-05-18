@@ -8,9 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './prod-edit.component.html',
   styleUrls: ['./prod-edit.component.css']
 })
+
 export class ProdEditComponent implements OnInit {
   edit_prod = {title: '', price: null, img: ''};
-  id: string;
+  id: any;
   prod_params: any;
   errors = null;
 
@@ -21,12 +22,19 @@ export class ProdEditComponent implements OnInit {
 
   ngOnInit() {
     this.edit_prod = { title: '', price: '', img: '' };
-    this.prod_params = this._route.params.subscribe(params => this.id = params['id']);
+    this.prod_params = this._route.params.subscribe(params => {
+      this.id = params.id;
+      this.oneProduct(this.id);
+    });
+    console.log(this.id);
   }
 
   oneProduct(id: string) {
     const obsevable = this._httpService.oneProduct(id);
-    obsevable.subscribe(data => this.edit_prod = data['data']);
+    obsevable.subscribe(data => {
+      console.log(data);
+      this.edit_prod = data['data'];
+    });
   }
 
   editProduct() {
@@ -42,3 +50,4 @@ export class ProdEditComponent implements OnInit {
   }
 
 }
+
